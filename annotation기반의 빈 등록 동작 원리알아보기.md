@@ -28,7 +28,6 @@
 - 내가 생각했을 때 application context는 설정정보에 기반하여 빈을 등록 및 제어하는데
 - application context는 beanFactory의 확장으로 설정정보읽어 이를 바탕으로!! / 실질적으로 등록코드 자체는 beanFactory라고 생각했고 이를 확인할 수 있었다.
 - <img width="861" alt="스크린샷 2022-06-04 오후 8 00 04" src="https://user-images.githubusercontent.com/62214428/171996159-6ae72363-8dee-40c8-8a88-b50b17bee29d.png">
-- 그런데 지금 더 살펴봐야할 것은 생성된 bean (bean instance)가 아니라 beanDefinition. 즉 빈에 대한 정보를 register한다
 
 ```
 여기까지 살펴본 것
