@@ -18,6 +18,16 @@ Bean Factory는 클라이언트의 요청에 의해서 Bean 객체가 사용되�
 
 즉 내가 생각하는바로는 Bean Factory를 확장한 Application Context가 
 빈 생성 및 직접적으로 연결관계를 맺어주는것은 Bean Factory의 기능을 활용하는데 이때 
-어떻게!! 할 것인지에 대한 설정정보(ex configuraion)를 읽어 이에 맞게 위 Bean Factory기능을 활용하는 확장판이 
-Application context
+어떻게!! 할 것인지에 대한 설정정보(ex configuraion)를 읽어 이에 맞게 위 Bean Factory기능을 활용하는 확장판이 Application context
+```
+
+### Bean의 요청 처리 과정
+- 특정 빈을 요청하면 application context는 다음과 같이 동작한다
+```
+1.Application context는 @configuration이 붙은 클래스를 설정정보로 등록 + @Bean이 붙은 매서드의 이름으로 빈 생성
+
+--- 요청
+2. 특정 빈을 요청한다
+3. Application context는 해당 이름의 빈이 존재하는지 찾는다(그렇기에 같은 이름의 빈 생성이 불가능한것 - 중복x)
+4. 있다면 이를 반환하고 없다면 설정를 바탕으로 생성 후 반환
 ```
