@@ -8,4 +8,4 @@ Spring-Core를 학습하자
 - https://github.com/skarltjr/Spring-Core/blob/main/annotation기반의%20빈%20등록%20동작%20원리알아보기.md
 
 ## bean scope의 개념
-- 
+- https://github.com/skarltjr/Spring-Core/blob/main/빈%20스코프.md
