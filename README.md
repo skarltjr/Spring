@@ -9,3 +9,6 @@ Spring-Core를 학습하자
 
 ## bean scope의 개념
 - https://github.com/skarltjr/Spring-Core/blob/main/빈%20스코프.md
+
+## AOP
+- https://github.com/skarltjr/Spring/blob/main/AOP.md
