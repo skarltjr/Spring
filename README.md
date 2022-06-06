@@ -10,5 +10,5 @@ Spring-Core를 학습하자
 ## bean scope의 개념
 - https://github.com/skarltjr/Spring-Core/blob/main/빈%20스코프.md
 
-## 스프링의 핵시원리 1. AOP
+## 스프링의 핵심원리 1. AOP
 - https://github.com/skarltjr/Spring/blob/main/AOP.md
