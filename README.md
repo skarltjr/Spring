@@ -18,3 +18,6 @@ Spring-Core를 학습하자
 
 ## 스프링의 핵심원리 3. IOC / DI
 - https://github.com/skarltjr/Spring/blob/main/IOC%20with%20DI.md
+
+
+component configuration
