@@ -44,7 +44,8 @@ public class AppConfig {
 #### 1. @Component를 활용하는 경우
 - <img width="344" alt="스크린샷 2022-06-11 오후 6 25 12" src="https://user-images.githubusercontent.com/62214428/173182036-4dc67fba-4ca6-4a72-964e-401b3972a9ad.png">
 - <img width="496" alt="스크린샷 2022-06-11 오후 6 25 15" src="https://user-images.githubusercontent.com/62214428/173182037-7b81dc67-23e5-4315-95f7-ac42dc437a23.png">
-- <img width="716" alt="스크린샷 2022-06-11 오후 6 25 18" src="https://user-images.githubusercontent.com/62214428/173182107-99962211-ab12-4709-b06a-a5967630347c.png">
+- <img width="534" alt="스크린샷 2022-06-11 오후 6 35 44" src="https://user-images.githubusercontent.com/62214428/173182407-5ebde0d7-4cc4-4393-89bc-dc6e95561939.png">
+
 ```
 그래서 @Component의 매서드를 직접 호출하는경우 싱글톤 보장이 안되기때문에 매 번 다른 빈을 생성하고
 이제는 이를 막고자 컴파일에러가 발생한다.
@@ -52,5 +53,17 @@ public class AppConfig {
 #### 2. @Configuration을 활용하는 경우
 - <img width="383" alt="스크린샷 2022-06-11 오후 6 26 35" src="https://user-images.githubusercontent.com/62214428/173182088-78188fb2-c89e-4aa8-8987-7cc10f732c6d.png">
 - <img width="484" alt="스크린샷 2022-06-11 오후 6 26 40" src="https://user-images.githubusercontent.com/62214428/173182089-6099aeef-18e4-4b8d-b35d-da0dd5d63d78.png">
-- <img width="750" alt="스크린샷 2022-06-11 오후 6 26 53" src="https://user-images.githubusercontent.com/62214428/173182091-04b55e06-0b3b-4638-8f8a-e0f41d4738c1.png">
+- <img width="558" alt="스크린샷 2022-06-11 오후 6 35 47" src="https://user-images.githubusercontent.com/62214428/173182413-c6b9f3be-0e98-482c-9772-8ce0790e2eda.png">
 
+### 따라서 
+```
+싱글톤을 의도했지만 @Component의 남용으로 인한 문제를 방지하기위해선
+결과적으로 한 번 생성된 객체를 활용해야한다.
+그리고 이 방법이 바로 의존관계 주입이다.
+```
+
+- <img width="515" alt="스크린샷 2022-06-11 오후 6 36 46" src="https://user-images.githubusercontent.com/62214428/173182425-53afe9ea-21ce-46d1-a209-cce9edbb1771.png">
+```
+바로 위의 simpleBeanConsumer() 매서드에서 이번에는 최초생성된 SimpleBean을 활용할 수 있도록
+의존관계 주입을 받아 사용하고 정상상태 확인
+```
