@@ -59,7 +59,7 @@ private xxService xxService;
 
 ### 동작 원리 3 (CGLIB)
 ```
-스프링부트는 이를 택한 CGLib은 Code Generator Library의 약자로, 
+스프링부트가 택한 CGLib은 Code Generator Library의 약자로, 
 클래스의 바이트코드를 조작하여 Proxy 객체를 생성해주는 라이브러리이다
 따라서 인터페이스가 아닌 타겟의 클래스에 대해서도 Proxy를 생성해준다
 
