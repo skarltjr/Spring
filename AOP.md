@@ -15,6 +15,21 @@ public void hello()
 ```
 - 개념 및 사용법 : https://github.com/skarltjr/Memory_Write_Record/issues/69
 
+### AOP의 Proxy란?
+- <img width="724" alt="스크린샷 2022-07-02 오후 10 15 17" src="https://user-images.githubusercontent.com/62214428/177002416-f1989a42-6c74-4bc2-a9e7-d92c10f77c96.png">
+```
+target을 감싸 타겟의 요청을 대신 받아주는 wrapping object
+호출자에서 타겟을 호출하게되면 타겟이 아닌 프록시가 호출되어 
+타겟 매서드 실행 전 전처리 -> 타겟 매서드 -> 후처리를 실행한다
+```
+
+### 왜 AOP는 Proxy를 사용하는가?
+```
+- 직접적인 접근을 제한하고 동시에 부가기능을 추가하고자
+- 스프링 bean에 대해서만 적용가능
+- 이를 통해 스프링 빈에 대해서 흔히 발생할 수 있는 코드 중복, 객체간 복잡도 증가 등을 줄일 수 있다.
+```
+
 ### 동작 원리 1
 ```
 스프링의 AOP는 Proxy기반으로 동작하며 Dynamic proxy & CGlib 방식이 존재한다
@@ -33,9 +48,10 @@ public void hello()
   ...
 }
 ```
-
+- <img width="1175" alt="스크린샷 2022-06-06 오후 2 39 47" src="https://user-images.githubusercontent.com/62214428/172101665-54cefe2f-5a42-4a1a-a55d-704c96c88c35.png">
 ### 동작 원리 2 (Dynamic proxy)
-- <img width="1175" alt="스크린샷 2022-06-06 오후 2 39 47" src="https://user-images.githubusercontent.com/62214428/172101665-54cefe2f-5a42-4a1a-a55d-704c96c88c35.png">
+- <img width="361" alt="스크린샷 2022-07-02 오후 10 30 13" src="https://user-images.githubusercontent.com/62214428/177003000-ba50300c-0e08-4495-be44-9fa327eafd80.png">
+
 ```
 그럼 AOP proxy는 어떻게 생성되는가?
 우선 타겟이란? 우리가 aop를 통해 어떤 기능을 적용하고자 하는, 대상이되는 매서드 혹은 클래스 등
@@ -44,7 +60,7 @@ public void hello()
 없다면 CGLIB 방식으로 생성된다
 
 ⭐️1. Dynamic Proxy
-Dynamic Proxy는 자바 리플렉션 패키지의 Proxy클래스를 통해 생성된 객체이다.
+Dynamic Proxy는 자바 리플렉션 패키지의 Proxy클래스를 통해 생성된 객체이다. 즉 런타임시 동적으로 만들어지는 오브젝트
 Dynamic Proxy의 핵심은 타겟의 인터페이스를 기준으로 Proxy를 생성해주는것
 !! 그래서 인터페이스를 상속받아야하고 의존관계 자동주입(Autowired)시 반드시 인터페이스 타입으로 지정해줘야한다
 
