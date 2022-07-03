@@ -23,4 +23,4 @@ Spring-Core를 학습하자
 - https://github.com/skarltjr/Spring/blob/main/%40component%20%26%20%40Configuration.md
 
 ## 동일한 Bean(Class)에서 @Transactional 동작 방식
-- 
+- https://github.com/skarltjr/Spring/blob/main/동일한%20Bean(Class)에서%20%40Transactional%20동작%20방식.md
