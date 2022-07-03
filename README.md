@@ -21,3 +21,6 @@ Spring-Core를 학습하자
 
 ## @component와 configuration 어노테이션의 차이
 - https://github.com/skarltjr/Spring/blob/main/%40component%20%26%20%40Configuration.md
+
+## 동일한 Bean(Class)에서 @Transactional 동작 방식
+- 
