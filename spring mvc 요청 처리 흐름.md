@@ -25,12 +25,16 @@ init시 아래 요소들을 생성한다.
 ```
 - <img width="804" alt="스크린샷 2022-07-09 오후 5 15 00" src="https://user-images.githubusercontent.com/62214428/178097681-21d92235-b14f-47de-a3f3-09a4e7e599bf.png">
 
-## 4. 그럼 어떻게 Dispatcher servelt에서 컨트롤러를???
+## 4. 스프링컨테이너 / 서블릿 컨테이너의 관계
 ```
-생각해보자.
-Dispatcher servelt은 핸들러 매핑을 통해 해당 요청을 처리할 컨트롤러를 찾는다.
-그런데 이 컨트롤러 정보를 어떻게 알고 매핑하는가?
-
- 
+스프링은 웹 프레임워크가 아니다.
+스프링 프레임워크 중 웹 애플리케이션을 만들고자 등장한 !!모듈!!이 spring mvc이다.
+따라서 스프링mvc 사용은 크게 스프링을위한 스프링컨테이너1(루트 컨테이너) / 그리고 서블릿을 위한 스프링컨테이너2 총 2개의 스프링컨테이너와 서블릿 컨테이너의 상호작용을 이해하자
 ```
-- <img width="961" alt="스크린샷 2022-07-09 오후 5 31 45" src="https://user-images.githubusercontent.com/62214428/178098289-1aed4bac-2ee0-4aa8-9620-7a22cb25c69a.png">
+- <img width="745" alt="스크린샷 2022-07-09 오후 5 53 57" src="https://user-images.githubusercontent.com/62214428/178099040-eac78f1e-e223-43af-8c6c-8e95330d6c89.png">
+```
+1. 애플리케이션 실행시 tomcat(was)에 의해 ApplicationContext가 생성된다.
+ - was에 의해 첫번째 Application context = 스프링 컨테이너(root) 생성 및 구동
+2. 클라이언트로부터 요청이 전달될때 DispatcherServlet이 생성된다.
+3. dispatcher servlet에 의해 두번째 스프링 컨테이너가 생성 및 동작한다.
+```
