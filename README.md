@@ -24,3 +24,5 @@ Spring-Core를 학습하자
 
 ## 동일한 Bean(Class)에서 @Transactional 동작 방식
 - https://github.com/skarltjr/Spring/blob/main/동일한%20Bean(Class)에서%20%40Transactional%20동작%20방식.md
+
+## spring mvc 요청 처리 흐름
