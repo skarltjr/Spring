@@ -18,7 +18,7 @@ Dispatcher servlet : spring mvc는 단 하나의 서블릿이자 front controlle
 ```
 - <img width="698" alt="스크린샷 2022-07-09 오후 5 08 10" src="https://user-images.githubusercontent.com/62214428/178097476-2accd9b5-cbde-4019-89ab-785ec461b73a.png">
 
-## 3. Dispatcher servelt의 구조
+## 3. Dispatcher servlet의 구조
 ```
 Dispatcher Servelt의 생명주기는 init - service - destroy로 
 init시 아래 요소들을 생성한다.
