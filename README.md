@@ -30,3 +30,6 @@ Spring-Core를 학습하자
 
 ## filter,interceptor,aop의 차이
 - https://github.com/skarltjr/Spring/blob/main/filter%2Cinterceptor%2Caop의%20차이.md
+
+## @transactional 어노테이션의 동작방식 소스코드 분석
+- https://github.com/skarltjr/Spring/blob/main/@transactional의%20동작방식.md
