@@ -56,7 +56,8 @@ psa = portable service abstraction / 즉 편리하 사용을 위해 그 구현�
 -> 중간 : 비즈니스 로직 수행
 -> 후 : 결과에 따라 롤백 및 커밋 후 트랜잭션 회수이다
 
-그런데 이때 "전"에 해당하는 단계에서 PSA를 통해 우리는 최상위 platformTransactionManager라는 인터페이스에 의존하고 상황에맞는 구현체가 DI로 주입된다.
+그런데 이때 "전"에 해당하는 단계에서 PSA를 통해 우리는 최상위 
+platformTransactionManager라는 인터페이스에 의존하고 상황에맞는 구현체가 DI로 주입된다.
 ```
 
 ```
