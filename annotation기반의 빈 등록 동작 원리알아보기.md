@@ -54,16 +54,36 @@ AnnotationConfigApplicationContext가 사실은 BeandefinitionRegistry을 구현
 ```
 
 ### 4. BeanDefinitionReaderUtils.registerBeanDefinition
-- 진짜 빈을 등록하는 로직
+- 그래서 위에서 전달받은 registry로 진짜 빈을 등록하는데..
 - <img width="689" alt="스크린샷 2022-06-04 오후 7 51 04" src="https://user-images.githubusercontent.com/62214428/171995924-eb7a69ed-99ae-4c54-afc8-a9624e2f9ed7.png">
+- 지금까지 봐온결고 registry는 AnnotationConfigApplicationContext 자기자신이었고 
+- AnnotationConfigApplicationContext은 beanDefinitionRegistry를 구현한 GenericApplicationContext을 상속받았다
+- 즉 진짜 마지막 등록을 위해 GenericApplicationContext을 살펴보면
+
+### 5. GenericApplicationContext.registerBean
+- <img width="745" alt="스크린샷 2022-09-29 오전 1 24 28" src="https://user-images.githubusercontent.com/62214428/192834026-36d98984-bebd-4b2c-8675-3e74f4def5ac.png">
+- <img width="714" alt="스크린샷 2022-09-29 오전 1 25 09" src="https://user-images.githubusercontent.com/62214428/192834227-7c07648c-bdde-435d-822c-df6546dfb712.png">
+
+```
+스프링에서 빈을 생성하는놈이 누구냐?
+빈 팩토리다. 그게 저 빈 팩토리다
+```
+- GenericApplicationContext 생성자를 봐보면
+- <img width="1054" alt="스크린샷 2022-09-29 오전 1 26 49" src="https://user-images.githubusercontent.com/62214428/192834492-4e7bdbe2-9ef6-4675-9dc0-efb9e4062340.png">
 
 
-- 바로 아래의 DefaultListableBeanFactory
+
 ### 5. DefaultListableBeanFactory.registerBeanDefinition
 - 내가 생각했을 때 application context는 설정정보에 기반하여 빈을 등록 및 제어하는데
 - application context는 beanFactory의 확장으로 설정정보읽어 이를 바탕으로!! / 실질적으로 등록코드 자체는 beanFactory라고 생각했고 이를 확인할 수 있었다.
 - <img width="861" alt="스크린샷 2022-06-04 오후 8 00 04" src="https://user-images.githubusercontent.com/62214428/171996159-6ae72363-8dee-40c8-8a88-b50b17bee29d.png">
-
+- 중요한건
+- <img width="908" alt="스크린샷 2022-09-29 오전 1 30 02" src="https://user-images.githubusercontent.com/62214428/192835561-f32b23d3-b80e-442e-a533-88e615590c0f.png">
+```
+Map 형태로 빈을 관리하는데 그 타입이 <String,BeanDefinition>이다
+즉 진짜 빈을 생성해서 맵에 저장하는게 아니라 여전히 빈 정보를 맵에 저장 왜?
+이는 스코프와 관련있다고 한다.
+```
 ```
 여기까지 살펴본 것
 
