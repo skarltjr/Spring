@@ -1,6 +1,8 @@
 ## annotation기반의 빈 등록 동작 원리알아보기
 
 - AnnotationConfigApplicationContext 클래스
+- <img width="788" alt="스크린샷 2022-09-29 오전 12 18 52" src="https://user-images.githubusercontent.com/62214428/192825823-94cd569a-85bd-4808-b790-f1d11a22653e.png">
+
 
 ### 1. AnnotationConfigApplicationContext.register
 - 무엇을 빈으로 등록할지, 등록을 시작하는 매서드
