@@ -84,9 +84,24 @@ Map 형태로 빈을 관리하는데 그 타입이 <String,BeanDefinition>이다
 즉 진짜 빈을 생성해서 맵에 저장하는게 아니라 여전히 빈 정보를 맵에 저장 왜?
 이는 스코프와 관련있다고 한다.
 ```
+### 느낀점
 ```
-여기까지 살펴본 것
+일단 너무 잘 쪼개진 매서드들과 각 인터페이스,클래스들을 아름답게 조합했다고 느꼈다.
+특히 자신의 책임을 명확히하고 책임이 아닌 행위는 다른 클래스의 도움을 받는다.
 
-application context는 bean factory의 확장으로 설정정보를 바탕으로 빈 생성 및 관계 설정등의 제어를 담당.
-이 때 bean factory의 확장이기에 실질적인 빈 등록의 과정 코드는 bean factory 구현체를 활용
+1. 실제 Map에 빈을 등록하여 생성하는 DefaultListableBeanFactory는 BeanFactory 인터페이스를 구현하고
+
+2. AnnotatedBeanDefinitionReader는 등록할 빈의 정보를 정의한다.
+    - 그리고 AnnotatedBeanDefinitionReader는 정리한 빈의 정보를 토대로 빈을 등록하기 위해 registry를 호출하여 도움을 받는데
+    - 빈 생성은 자신의 책임이 아니니 registry를 호출
+    - 이 registry는 바로 AnnotationConfigApplicationContext인데
+    - AnnotationConfigApplicationContext은 GenericApplicationContext를 상속받는다.
+    
+3. 즉 GenericApplicationContext가 BeanDefinitionRegistry를 구현한 구현체고 이 친구가 registry 역할을 수행한다
+    - 이때 GenericApplicationContext는 정의된 빈 정보를 갖고 빈을 등록하는데
+    - 빈 생성 자체는 자신의 역할이 아니니 beanFactory를 호출한다
+    
+4. 그리고 이때 1번에서 봤듯이 BeanFactory를 구현한 DefaultListableBeanFactory가 호출되고
+    - Map에 빈 정보를 등록하는 빈 생성을 수행한다.
+  
 ```
