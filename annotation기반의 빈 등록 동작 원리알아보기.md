@@ -36,8 +36,12 @@ public class BeanConfig {
 
 ### 4. BeanDefinitionReaderUtils.registerBeanDefinition
 - 진짜 빈을 등록하는 로직
-- 그런데 여기서 진짜 빈을 등록하는건 registry인데?? 누굴까?
+- 그런데 여기서 진짜 빈을 등록하는건 registry인데?? 누굴까? 
 - <img width="689" alt="스크린샷 2022-06-04 오후 7 51 04" src="https://user-images.githubusercontent.com/62214428/171995924-eb7a69ed-99ae-4c54-afc8-a9624e2f9ed7.png">
+- 바로 위 사진을봐보자 
+- BeanDefinitionReaderUtils.registerBeanDefinition()의 파라미터로 넘겨준 ⭐️this.registry다
+- 이게 도대체 누구냐!!!
+
 - 바로 아래의 DefaultListableBeanFactory
 ### 5. DefaultListableBeanFactory.registerBeanDefinition
 - 내가 생각했을 때 application context는 설정정보에 기반하여 빈을 등록 및 제어하는데
