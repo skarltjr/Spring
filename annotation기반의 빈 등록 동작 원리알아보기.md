@@ -45,7 +45,13 @@ public class BeanConfig {
 - 결국에 ⭐️BeandefinitionRegistry가 AnnotationConfigApplicationContext이었다.
 - 그럼 이 그림을 다시 봐보자
 - <img width="788" alt="스크린샷 2022-09-29 오전 12 18 52" src="https://user-images.githubusercontent.com/62214428/192831169-d642e81a-52ab-436f-abb3-a95e4b612b3d.png">
-
+```
+바로 위위 AnnotationConfigApplicationContext 사진과 함께 바로 위 사진을 봐보면
+결국 AnnotationConfigApplicationContext은 자기 자신을 생성하는 생성자에서 AnnotatedBeanDefinitionReader를 생성하는데
+AnnotatedBeanDefinitionReader는 생성자의 파라미터로 BeandefinitionRegistry를 필요한데 
+AnnotationConfigApplicationContext가 사실은 BeandefinitionRegistry을 구현한 GenericApplicationContext을 상속받은 BeandefinitionRegistry고
+그래서 자기자신을 넘겨준다
+```
 
 ### 4. BeanDefinitionReaderUtils.registerBeanDefinition
 - 진짜 빈을 등록하는 로직
