@@ -14,6 +14,18 @@
 - 실질적으로 빈 등록을 시작하는 매서드
 ```
 1. AnnotatedGenericBeanDefinition : BeanDefinition의 구현체, Bean의 속성, 생성자 등의 정보를 갖는다.
+예를들어 아래같은 빈 config를 통해 등록될 빈의 정보를 정의하는 클래스
+@Configuration
+public class BeanConfig {
+
+    @Bean
+    public AccountService accountService() {
+        AccountService accountService = new AccountService();
+        accountService.setAccountRepository(accountRepository());
+        return accountService;
+    }
+}
+
 2. ScopeMetadata : Bean Scope의 정보
 3. BeanDefinitionHolder : BeanDefinition와 name, alias 정보를 추가적으로 갖는다. 
 4. BeanDefinitionReaderUtils : Bean을 IoC Container 즉, ApplicationContext에 저장하는 역할을 하는 utils 클래스 이다.
