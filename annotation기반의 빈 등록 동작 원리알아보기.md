@@ -16,6 +16,7 @@
 1. AnnotatedGenericBeanDefinition : BeanDefinition의 구현체, Bean의 속성, 생성자 등의 정보를 갖는다.
 2. ScopeMetadata : Bean Scope의 정보
 3. BeanDefinitionHolder : BeanDefinition와 name, alias 정보를 추가적으로 갖는다. 
+4. BeanDefinitionReaderUtils : Bean을 IoC Container 즉, ApplicationContext에 저장하는 역할을 하는 utils 클래스 이다.
 ```
 - <img width="935" alt="스크린샷 2022-06-04 오후 7 42 52" src="https://user-images.githubusercontent.com/62214428/171995694-998a48b5-2c5f-4e2f-804e-d42a8092d554.png">
 
