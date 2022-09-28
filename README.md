@@ -1,5 +1,6 @@
 # Spring-Core
 Spring-Core를 학습하자
+- <img width="788" alt="스크린샷 2022-09-29 오전 12 18 52" src="https://user-images.githubusercontent.com/62214428/192818520-88bcfcd0-f590-4d7f-a431-a8a896397a4f.png">
 
 ## bean과 bean factory 그리고 application context
 - https://github.com/skarltjr/Spring-Core/blob/main/application%20context.md
