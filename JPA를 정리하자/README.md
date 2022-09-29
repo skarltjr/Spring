@@ -40,6 +40,16 @@ Team이 n개의 멤버뿐만아니라 n개의 스폰서도 갖는 연관관계�
 
 fetch join은 여러 자식이 있을 때 
 즉, 한번에 2개 이상의 자식 엔티티에는 join fetch을 사용불가 MultipleBagFetchException
+이 문제 해결 대안으로 default_batch_fetch_size를 생각해볼 수 있는데
 ```
 
 ### default_batch_fetch_size
+```
+batch-size 옵션은 하위 엔티티를 로딩할때 한번에 상위 엔티티 ID를 지정한 숫자만큼 in Query로 로딩 
+예를들어 batch-size:1000으로 되어있으면, 상위 엔티티인 Team의 id 1000개를 in Query로 member,sponsor를 조회
+
+그럼 team 조회 쿼리 1방
+member 조회 쿼리 1방
+sponsor 조회 쿼리 1방
+총 3방으로 끝낼 수 있다.
+```
