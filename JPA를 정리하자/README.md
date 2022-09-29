@@ -53,3 +53,4 @@ member 조회 쿼리 1방
 sponsor 조회 쿼리 1방
 총 3방으로 끝낼 수 있다.
 ```
+주의점 : https://toongri.tistory.com/70?category=1232233
