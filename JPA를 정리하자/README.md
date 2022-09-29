@@ -30,4 +30,16 @@ FetchJoin도 만능인가?
 예를들어 페이징의 경우 fetchJoin은 join으로 팀,멤버 싹 다 가져온 후 메모리에 올려놓고 
 메모리에서 이를 페이징한다.
 그러니까 데이터가 엄청많으면? 엄청난 자원 소모가 발생할 수 있다.
+
 ```
+```
+추가로 
+
+Team이 n개의 멤버뿐만아니라 n개의 스폰서도 갖는 연관관계라고 해보자
+즉 자식이 2개
+
+fetch join은 여러 자식이 있을 때 
+즉, 한번에 2개 이상의 자식 엔티티에는 join fetch을 사용불가 MultipleBagFetchException
+```
+
+### default_batch_fetch_size
