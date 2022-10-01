@@ -8,6 +8,14 @@ jpa 단독을 먼저 알아야 data jpa를 쓰는거다
 - 첫 강의에서 느낀건 jpa 단독 사용시 아래처럼 설정파일이 필요한데 스프링부트가 이걸 다 해준다. 스프링부트의 편리성도 알수있다.
 https://github.com/madvirus/jpa-basic/blob/main/jpa-01/src/main/resources/META-INF/persistence.xml
 ```
+commit 시점
+```
+기본적으로 jpa의 영속성 컨텍스트는 트랜잭션이 시작할때 열리고 트랜잭션 종료 후 커밋 시점에 
+쿼리가 발생하여 영속성 컨텍스트 내용이 db에 반영된다.
+
+물론 auto_increment등 일부는 persist()호출 ㅎ commit()전 쿼리가 발생하기도 한다.
+```
+
 ⭐️ n+1 오해
 ```
 fetchType Eager : 즉시 로딩
