@@ -111,6 +111,9 @@ BeanPostProcessor를 알아볼 필요가 있었다.
 
 ### 8. ConstructorResolver.autowireConstructor()
 ```
-
+앞에서 받은 생성자 정보 및 파라미터 정보를 토대로 
+빈을 생성해둔다.
 ```
+- <img width="923" alt="스크린샷 2022-10-02 오후 5 38 18" src="https://user-images.githubusercontent.com/62214428/193445636-1c6c9cb5-0e0f-439c-9fde-114102663bb9.png">
+
 
