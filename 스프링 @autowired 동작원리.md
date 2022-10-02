@@ -1,13 +1,13 @@
-### @Autowired
+### 들어가기전
 ```
-도대체 어떻게 의존관계가 자동으로 주입되는가.
+도대체 어떻게 의존관계가 주입되는가.
 DI가 어떻게 작동하는건지 알아보자
 
 @Autowired는 의존 객체의 타입에 해당하는 빈을 찾아 주입해주는데...
 
 @Autowired 필드주입이 아닌
 여기서는 생성자 주입 Di를 알아보고자한다.
-왜? 내가 많이 
+왜? 내가 많이 사용하니까
 ```
 ```
 우선 큰 흐름은 getBean -> doGetBean -> createBean -> doCreateBean -> createBeanInstance 
