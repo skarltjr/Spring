@@ -7,9 +7,6 @@ DI가 어떻게 작동하는건지 알아보자
 
 여기서는 생성자 주입 Di를 알아보고자한다.
 왜? 내가 많이 사용하니까
-
-참고로 결국 생성자 주입도 @Autowired 사용한다.
-다만 생성자가 1개. 즉 오버로딩으로 여러개 생성자 있는 경우엔 @Autowired필수고 그게 아닌 경우엔 안써줘도된다.
 ```
 ```
 우선 큰 흐름은 getBean -> doGetBean -> createBean -> doCreateBean -> createBeanInstance 
