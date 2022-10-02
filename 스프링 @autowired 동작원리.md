@@ -114,6 +114,26 @@ BeanPostProcessor를 알아볼 필요가 있었다.
 앞에서 받은 생성자 정보 및 파라미터 정보를 토대로 
 빈을 생성해둔다.
 ```
-- <img width="923" alt="스크린샷 2022-10-02 오후 5 38 18" src="https://user-images.githubusercontent.com/62214428/193445636-1c6c9cb5-0e0f-439c-9fde-114102663bb9.png">
+- <img width="923" alt="스크린샷 2022-10-02 오후 5 38 18" src="https://user-images.githubusercontent.com/62214428/193445862-639eec4e-3d19-41d7-a394-2e4d5682fa58.png">
+```
+그럼 빈을 생성하는 instantiate 매서드를 살펴보면
+참고 : instantiate() 리플렉션 기반의 빈 생성을 시도한다.
+```
+
+### 9. ConstructorResolver.instantiate()
+- <img width="1027" alt="스크린샷 2022-10-02 오후 5 53 43" src="https://user-images.githubusercontent.com/62214428/193446261-95298fe4-bb93-4b5c-9aa7-cc8e1b3edd05.png">
+
+### 10. SimpleInstantiationStrategy.instantiate()
+```
+BeanUtils를 호출하여 최종적으로 빈을 생성
+```
+- <img width="851" alt="스크린샷 2022-10-02 오후 5 55 11" src="https://user-images.githubusercontent.com/62214428/193446352-01b0d453-b381-4105-bd67-3d199cce9a45.png">
+
+### 11. BeanUtils.instantiateClass()
+- <img width="1123" alt="스크린샷 2022-10-02 오후 5 55 35" src="https://user-images.githubusercontent.com/62214428/193446346-b26b8631-d42a-4fc8-aca0-09bcbbbfc532.png">
+```
+리플렉션을 통한 빈 생성 완.료.
+```
+
 
 
