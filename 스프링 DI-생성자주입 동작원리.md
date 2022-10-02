@@ -7,6 +7,8 @@ DI가 어떻게 작동하는건지 알아보자
 
 여기서는 @Autowired사용하는 필드주입이나 @Autowired를 사용하는 경우말고 생성자 주입 Di를 알아보고자한다.
 왜? 내가 많이 사용하니까
+
+참고로 생성자 주입의 경우도 단일 생성자가 아닌 경우 @Autowired를 명시한다.
 ```
 ```
 우선 큰 흐름은 getBean -> doGetBean -> createBean -> doCreateBean -> createBeanInstance 
