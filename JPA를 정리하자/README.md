@@ -62,3 +62,12 @@ sponsor 조회 쿼리 1방
 총 3방으로 끝낼 수 있다.
 ```
 주의점 : https://toongri.tistory.com/70?category=1232233
+
+
+### jpa 커스텀 매서드는 트랜잭션 처리가 되어있지 않다
+```
+jpaRepository를 상속받은 레퍼지토리 중 save()와 같은 매서드는 기본적으로 @Transaction 어노테이션이 적용되어있는 반면
+findBy~field() 등 커스텀한 매서드는 적용되어있지 않다.
+```
+- https://velog.io/@max9106/JPA-Repository-커스텀-메서드-트랜잭션-처리-Transactional
+
