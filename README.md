@@ -2,6 +2,11 @@
 Spring-Core를 학습하자
 - <img width="788" alt="스크린샷 2022-09-29 오전 12 18 52" src="https://user-images.githubusercontent.com/62214428/192818520-88bcfcd0-f590-4d7f-a431-a8a896397a4f.png">
 
+```
+솔직히 다 이해하기엔 아직 너무 부족하다
+다만 궁금한 부분이 있으면 찾아보고 익히려고한다.
+```
+
 ## bean과 bean factory 그리고 application context
 - https://github.com/skarltjr/Spring-Core/blob/main/application%20context.md
 
