@@ -75,12 +75,42 @@ Supports autowiring constructors, properties by name, and properties by type.
 ```
 - <img width="1028" alt="스크린샷 2022-10-02 오후 4 27 32" src="https://user-images.githubusercontent.com/62214428/193443074-59c6a26a-c450-4734-a947-8882b28ced96.png">
 
+```
+어떤 정보를 가져왔는지 확인해보면
+Di 대상이 되는 놈이 어떤 클래스인지, 생성자 정보(파라미터등)을 가져온다
+```
+- <img width="1465" alt="스크린샷 2022-10-02 오후 5 10 56" src="https://user-images.githubusercontent.com/62214428/193444671-3725d59f-b673-4f23-9197-f8132cebe46f.png">
+```
+확인해보면
+```
+- <img width="495" alt="스크린샷 2022-10-02 오후 5 14 24" src="https://user-images.githubusercontent.com/62214428/193444723-ba0aa49a-394c-45d2-9f28-8773548869c4.png">
+
+
 ### 7. SmartInstantiationAwareBeanPostProcessor.determineCandidateConstructors()
 ```
+솔직히 더 궁금했다.
+어떻게 저 정보 가져왔는지 궁금했다
 SmartInstantiationAwareBeanPostProcessor 인터페이스는 결과적으로 BeanPostProcessor인터페이스를 상속받는데
+BeanPostProcessor를 알아볼 필요가 있었다.
 
-즉 
+그리고 이게 autowiring의 핵심이지 않을까한다.
+```
+⭐️ BeanPostProcessor
+```
+빈 후처리기는 스프링이 빈 저장소에 등록할 목적으로 생성한 객체를!!!
+빈 저장소에 등록하기 전에!!!
+조작하게 해주는 기능
+
+객체를 조작할수도, 다른 객체로 교체할수도있다.
 ```
 
 
+```
+마지막으로 생성자 타입 및 파리미터 정보를 다 구비했으니 이제 빈을 생성 후 주입할 차례다
+```
+
+### 8. ConstructorResolver.autowireConstructor()
+```
+
+```
 
