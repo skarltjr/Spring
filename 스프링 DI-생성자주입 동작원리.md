@@ -8,8 +8,8 @@ DI가 어떻게 작동하는건지 알아보자
 여기서는 @Autowired사용하는 필드주입이나 @Autowired를 사용하는 경우말고 생성자 주입 Di를 알아보고자한다.
 왜? 내가 많이 사용하니까
 
-참고로 생성자 주입의 경우도 단일 생성자가 아닌 경우 @Autowired를 명시한다.
 ```
+
 ```
 우선 큰 흐름은 getBean -> doGetBean -> createBean -> doCreateBean -> createBeanInstance 
 순서임을 기억하고 가보자
@@ -140,3 +140,45 @@ BeanUtils를 호출하여 최종적으로 빈을 생성
 
 
 
+```
+참고로 생성자 주입의 경우도 단일 생성자가 아닌 경우 @Autowired를 명시한다.
+중요한것은 생성자 주입이냐 / 필드,setter 주입이냐이고 두 방식의 동작 방식이 다르다
+
+이는 injectionMetadata 클래스의 inject 매서드를 브레이크 포인트 걸고 디버깅해보면 알 수 있다.
+생성자주입은 필드 주입이 아니기에 걸리지 않는다. 방식자체가 다르다
+```
+```
+public class Controller {
+    private final MyService myService;
+    private final MyService2 myService2;
+    private final ConcurrentService concurrentService;
+    private final SampleServ sampleServ;
+
+    @Autowired  // @Autowired가 있고없고를 떠나서 이 방식은 생 성 자 주입
+    public Controller(MyService myService, MyService2 myService2, ConcurrentService concurrentService, SampleServ sampleServ) {
+        this.myService = myService;
+        this.myService2 = myService2;
+        this.concurrentService = concurrentService;
+        this.sampleServ = sampleServ;
+    }
+```
+
+```
+// 해당 방식은 필드 주입으로 
+public class Controller {
+    @Autowired
+    private MyService myService;
+    @Autowired
+    private MyService2 myService2;
+    @Autowired
+    private ConcurrentService concurrentService;
+    @Autowired
+    private SampleServ sampleServ;
+    
+    public Controller(MyService myService, MyService2 myService2, ConcurrentService concurrentService, SampleServ sampleServ) {
+        this.myService = myService;
+        this.myService2 = myService2;
+        this.concurrentService = concurrentService;
+        this.sampleServ = sampleServ;
+    }
+```
