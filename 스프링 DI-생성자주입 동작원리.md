@@ -138,6 +138,17 @@ BeanUtils를 호출하여 최종적으로 빈을 생성
 리플렉션을 통한 빈 생성 완.료.
 ```
 
+- https://github.com/skarltjr/Spring/blob/main/annotation기반의%20빈%20등록%20동작%20원리알아보기.md
+```
+정리해보자면 먼저 위 링크를 통해 알 수 있듯이 빈이 등록될 수 있는데
+생성자 주입의 경우 빈 생성 과정을 살펴보면
+
+defaultListableBeanFactory 클래스에 빈 denifition map에 저장된 정보를 바탕으로 
+⭐️AbstractAutowireCapableBeanFactory 클래스에서 빈 인스턴스를 생성한다.
+중요한것은 빈 후처리기를 통해 빈으로 등록할 객체를 생성 후 빈 저장소에 저장하기전 생성자 정보를 가져올 수 있는데
+생성자주입의 경우 이를통해 DI의 대상이 되는(예를들어 service를 주입받은 controller)의 생성자 정보를 바탕으로
+리플렉션을 통해 생성자를 makeAccessible 후 조작하여 빈을 생성해낸다.
+```
 
 
 ```
