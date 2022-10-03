@@ -59,7 +59,7 @@ public class AppConfig {
 ```
 싱글톤을 의도했지만 @Component의 남용으로 인한 문제를 방지하기위해선
 결과적으로 한 번 생성된 객체를 활용해야한다.
-그리고 이 방법이 바로 의존관계 주입이다.
+그리고 이 방법이 바로 의존관계 주입-생성자 주입이다.
 ```
 
 - <img width="515" alt="스크린샷 2022-06-11 오후 6 36 46" src="https://user-images.githubusercontent.com/62214428/173182425-53afe9ea-21ce-46d1-a209-cce9edbb1771.png">
