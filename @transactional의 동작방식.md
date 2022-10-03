@@ -59,6 +59,7 @@ psa = portable service abstraction / 즉 편리하 사용을 위해 그 구현�
 그런데 이때 "전"에 해당하는 단계에서 PSA를 통해 우리는 최상위 
 platformTransactionManager라는 인터페이스에 의존하고 상황에맞는 구현체가 DI로 주입된다.
 ```
+- <img width="1466" alt="스크린샷 2022-10-04 오전 1 04 38" src="https://user-images.githubusercontent.com/62214428/193625621-a08cbb69-3410-4c19-9396-e58a7a7178f7.png">
 
 ```
 class Test {
