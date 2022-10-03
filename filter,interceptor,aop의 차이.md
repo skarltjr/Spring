@@ -37,3 +37,14 @@ Interceptor나 Filter와는 달리 "메소드" 전후의 지점에 자유롭게 
 ```
 
 
+----------
+```
+요청 -> httpservletReq/response객체 생성( 해당 객체로부터 ip등의 정보를 뽑을 수 있다) -> filter -> dispatcher servlet -> interceptor -> controller
+
+즉 필터의 경우 들어온 요청으로부터 생성된 servlet request 객체로부터 알아낼 수 있는 정보를 바탕으로
+해당 요청을 처리할지 하지 않을지를 판단
+
+이후 처리하겠다면 디스패처 서블릿이 요청을 핸들러매핑,핸들러 어댑터로 요청 처리를 위임하는데
+이때 controller에게 요청처리가 넘어가기전 interceptor가 동작하여 전처리 혹은 controller가 처리한 데이터가
+응답되기전 후처리 추가
+```
