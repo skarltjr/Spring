@@ -83,7 +83,42 @@ AnnotationConfigApplicationContext가 사실은 BeandefinitionRegistry을 구현
 Map 형태로 빈을 관리하는데 그 타입이 <String,BeanDefinition>이다
 즉 진짜 빈을 생성해서 맵에 저장하는게 아니라 여전히 빈 정보를 맵에 저장 왜?
 이는 스코프와 관련있다고 한다.
+
+각 스코프에 맞게 생성하기 위해 우선 빈 정보를 저장해둔다.
+예를들어 프로토타입의 경우 매 번 생성해야하니 빈 정보가 저장된 map에서 꺼내서 그때마다 생성
 ```
+
+### 6. DefaultListableBeanFactory.getBean
+```
+이제 필요시점에 스코프에따라 빈을 생성하기위해 정보가 저장된 map에서 정보를 꺼내 진짜 생성해야한다.
+```
+- <img width="693" alt="스크린샷 2022-10-03 오전 11 45 42" src="https://user-images.githubusercontent.com/62214428/193492748-9f54bdbd-2d70-4823-be5b-ed0e40f3b0f8.png">
+```
+getBean() -> AbstractBeanFactory.doGetBean()을 따라가면
+```
+- <img width="555" alt="스크린샷 2022-10-03 오전 11 52 49" src="https://user-images.githubusercontent.com/62214428/193493439-95c38509-8485-4cdf-8764-f203d99372ce.png">
+```
+앞서 저장한 빈 정보를 가져오는 getMergedLocalBeanDefinition()가 있는데
+```
+- <img width="778" alt="스크린샷 2022-10-03 오전 11 54 24" src="https://user-images.githubusercontent.com/62214428/193493621-b5695a6d-a8c2-4a2c-93ed-ffa1110ccea5.png">
+```
+getBeanDefinition()은 AbstractBeanFactory를 상속받은 DefaultListableBeanFactory에서 구현내용을 찾아볼수있는데
+```
+- <img width="787" alt="스크린샷 2022-10-03 오전 11 57 28" src="https://user-images.githubusercontent.com/62214428/193493907-397a27c9-6f8c-41b3-b92e-7e3a6fcf2cb8.png">
+```
+드디어 map에서 이전에 저장해둔 정보를 꺼내온다
+```
+- <img width="772" alt="스크린샷 2022-10-03 오후 12 00 02" src="https://user-images.githubusercontent.com/62214428/193494161-d6b14cae-b3ae-47c8-8988-e7f33c3dda94.png">
+```
+결과적으로 AbstractBeanFactory.doGetBean()에서
+mbd => beandefinition 정보를 찾아와 싱글톤빈이 없다면 createBean()을 수행 후 싱글톤 빈을 저장해둔다.
+```
+
+- <img width="851" alt="스크린샷 2022-10-03 오전 11 48 46" src="https://user-images.githubusercontent.com/62214428/193493046-471fbf21-57fe-4c0d-9a06-7695d272c377.png">
+```
+즉 빈 스코프 정보 파악 후 이에따라 동작을 수행한다(빈 생성을)
+```
+
 ### 느낀점
 ```
 일단 너무 잘 쪼개진 매서드들과 각 인터페이스,클래스들을 아름답게 조립했다고 느꼈다.
@@ -103,5 +138,11 @@ Map 형태로 빈을 관리하는데 그 타입이 <String,BeanDefinition>이다
     
 4. 그리고 이때 1번에서 봤듯이 BeanFactory를 구현한 DefaultListableBeanFactory가 호출되고
     - Map에 빈 정보를 등록하는 빈 생성을 수행한다.
-  
+    - 이때 빈 definition을 맵에 등록하는 이유는 바로 스코프때문
+    - 프로토타입의 경우 매 번 생성해줘야하기때문에 생성 정보가 매번필요
+    
+5. 최종적으로 AbstractBeanFactory의 doGetBean()으로부터 시작해서
+    - 이전에 만들어둔 빈 definition을 바탕으로
+    - 스코프에 따라 빈을 생성
+    - 싱글톤의 경우 빈이 없는 경우 생성 후 싱글톤 빈 저장
 ```
