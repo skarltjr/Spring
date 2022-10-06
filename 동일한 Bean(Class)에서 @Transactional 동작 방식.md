@@ -58,3 +58,7 @@ save() 매서드를 별도의 bean으로 빼고 이를 호출하는 형태를 �
 - <img width="358" alt="스크린샷 2022-07-03 오후 5 55 57" src="https://user-images.githubusercontent.com/62214428/177032608-477397e7-cdd2-4a85-b586-8bc739d0a873.png">
 - <img width="546" alt="스크린샷 2022-07-03 오후 5 56 01" src="https://user-images.githubusercontent.com/62214428/177032612-b7e1b37f-951f-47df-89e8-80fa382854cd.png">
 - <img width="271" alt="스크린샷 2022-07-03 오후 5 55 39" src="https://user-images.githubusercontent.com/62214428/177032623-854d70c7-8006-4513-9e04-8eb95da50a7b.png">
+
+------------
+- 그런데 다음 상황도 한 번 예측해보자
+- <img width="839" alt="스크린샷 2022-10-06 오후 7 37 12" src="https://user-images.githubusercontent.com/62214428/194292323-799cd87d-fbb4-4d65-8ed4-e87f78be1133.png">
