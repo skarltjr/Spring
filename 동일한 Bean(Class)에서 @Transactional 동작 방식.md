@@ -39,6 +39,7 @@ repo.save()마다 단일 트랜잭션을 수행한 것
 일단 스프링부트는 AOP Proxy 생성 방법으로 CGLIB을 기본 채택
 
 그리고 Proxy Default Mode에서는 외부 매서드(즉 외부bean / 서로 다른 bean)에서 호출하는 경우에만 프록시가 동작
+즉 동일빈내에서는 this로 매서드를 호출하고 이 경우 프록시 객체가 아닌 원본 객체의 매서드를 실행
 
 결과적으로 지금 나의 코드는 다른 bean이 아닌 // myService에서 동일한 bean(myService) 내부 매서드를 호출하는 형태고
 그렇기에 프록시가 동작하지 않았고  // 프록시가 동작하지 않기에 AOP를 통한 @Transactional이 동작하지 않은것이다
