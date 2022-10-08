@@ -71,3 +71,4 @@ findBy~field() 등 커스텀한 매서드는 적용되어있지 않다.
 ```
 - https://velog.io/@max9106/JPA-Repository-커스텀-메서드-트랜잭션-처리-Transactional
 
+### 양방향 연관관계의 주의점
