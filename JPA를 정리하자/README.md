@@ -63,6 +63,14 @@ sponsor 조회 쿼리 1방
 ```
 주의점 : https://toongri.tistory.com/70?category=1232233
 
+### findAll()
+```
+기본적으로 fetch 전략은 단일 엔티티 조회시에만 적용이된다.
+예를들어 person : team n:1 매핑일때 findAll()로 모든 person을 찾는경우 모든 person을 찾은뒤!!
+그 다음 각 person에 따라 = fetch 전략에 따라 연관 엔티티를 가져온다
+아래를 참고하자
+```
+- https://github.com/skarltjr/Spring/blob/main/JPA를%20정리하자/12.%20n:1%20단방향%20연관관계.md
 
 ### jpa 커스텀 매서드는 트랜잭션 처리가 되어있지 않다
 ```
