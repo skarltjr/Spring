@@ -14,8 +14,10 @@ Spring-Core를 학습하자
 - https://github.com/skarltjr/Spring-Core/blob/main/annotation기반의%20빈%20등록%20동작%20원리알아보기.md
 
 ## DI의 동작방식을 알아보자
+- 생성자 주입
 - https://github.com/skarltjr/Spring/blob/main/스프링%20DI-생성자주입%20동작원리.md
-
+- 필드,세터 주입 Autowired
+- 
 ## bean scope의 개념
 - https://github.com/skarltjr/Spring-Core/blob/main/빈%20스코프.md
 
