@@ -17,7 +17,7 @@ Spring-Core를 학습하자
 - 생성자 주입
 - https://github.com/skarltjr/Spring/blob/main/스프링%20DI-생성자주입%20동작원리.md
 - 필드,세터 주입 Autowired
-- 
+- https://github.com/skarltjr/Spring/blob/main/스프링%20DI%20-%20필드%2C세터%20주입원리.md
 ## bean scope의 개념
 - https://github.com/skarltjr/Spring-Core/blob/main/빈%20스코프.md
 
