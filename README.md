@@ -20,8 +20,9 @@ Spring-Core를 학습하자
 - https://github.com/skarltjr/Spring-Core/blob/main/빈%20스코프.md
 
 ## 스프링의 핵심원리 1. AOP
+- AOP의 개념
 - https://github.com/skarltjr/Spring/blob/main/AOP.md
-- AOP : dynamic proxy의 동작원리
+- AOP의 기본 동작원리
 
 
 ## 스프링의 핵심원리 2. PSA
