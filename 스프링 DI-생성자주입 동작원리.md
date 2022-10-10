@@ -151,6 +151,8 @@ defaultListableBeanFactory 클래스에 빈 denifition map에 저장된 정보�
 중요한것은 빈 후처리기를 통해 빈으로 등록할 객체를 생성 후 빈 저장소에 저장하기전 생성자 정보를 가져올 수 있는데
 생성자주입의 경우 이를통해 DI의 대상이 되는(예를들어 service를 주입받은 controller)의 생성자 정보를 바탕으로
 리플렉션을 통해 생성자를 makeAccessible 후 조작하여 빈을 생성해낸다.
+
+즉 의존성을 주입하고 빈을 생성한다.
 ```
 
 
