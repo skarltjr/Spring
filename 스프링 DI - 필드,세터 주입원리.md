@@ -58,7 +58,38 @@ AutowiredAnnotationBeanPostProcessor.postProcessProperties()를 살펴보자!!
 여기 findAutowiringMetadata()매서드를 보자
 
 지금 빈은 생성된 상태고 앞으로 우리가 해야할일은? 바로 의존관계 주입
-그러기 위해선 의존관계 주입을 위한 정보가 필요하고 findAutowiringMetadata() 매서드로부터 시작한ㄷ.
+그러기 위해선 의존관계 주입을 위한 정보가 필요하고 findAutowiringMetadata() 매서드로부터 시작한다
 ```
+
+```
+메타데이터를 얻는 과정을 살펴보기위해 
+AutowiredAnnotationBeanPostProcessor().findAutowiringMetadata() 중
+AutowiredAnnotationBeanPostProcessor.buildAutowiringMetadata()를 호출하는걸 살펴보자
+```
+
+### AutowiredAnnotationBeanPostProcessor.buildAutowiringMetadata()
+- <img width="984" alt="스크린샷 2022-10-10 오후 9 56 11" src="https://user-images.githubusercontent.com/62214428/194871416-728e747a-7814-4354-899c-89bd6c4fd032.png">
+```
+필드, 매서드 주입 부분을 확인할 수 있다!!!
+```
+```
+그 중 공통으로 보이는 부분이 바로 findAutowiredAnnotation()
+```
+
+### AutowiredAnnotationBeanPostProcessor.findAutowiredAnnotation()
+- <img width="984" alt="스크린샷 2022-10-10 오후 9 56 11" src="https://user-images.githubusercontent.com/62214428/194871601-b4bbec8a-1527-4885-a331-501c490612ba.png">
+```
+@Autowired 어노테이션 붙어있는지를 검사하는 부분이다.
+```
+
+--------
+```
+결국 위 과정을 통해 
+필드,매서드 주입의 경우 
+1. 빈을 먼저 생성
+2. 해당 빈에 의존관계를 주입하기위해 
+```
+--------
+### 
 
 
