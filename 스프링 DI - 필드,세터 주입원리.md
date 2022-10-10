@@ -87,9 +87,23 @@ AutowiredAnnotationBeanPostProcessor.buildAutowiringMetadata()를 호출하는�
 결국 위 과정을 통해 
 필드,매서드 주입의 경우 
 1. 빈을 먼저 생성
-2. 해당 빈에 의존관계를 주입하기위해 
+2. 해당 빈에 의존관계를 주입하기위해 AbstractAutowireCapableBeanFactory.populateBean()
+- AutowiredAnnotationBeanPostProcessor.postProcessProperties()
+- AutowiredAnnotationBeanPostProcessor().findAutowiringMetadata()
+- AutowiredAnnotationBeanPostProcessor.buildAutowiringMetadata()
+- 위 단계를 거쳐 의존관계 주입을 위한 정보를 수집
+
+이제 inject 할 차례인데..
 ```
 --------
-### 
+### AutowiredAnnotationBeanPostProcessor.postProcessProperties()
+```
+다시 돌아와 inject를 살펴보자
+```
+- <img width="867" alt="스크린샷 2022-10-10 오후 10 04 34" src="https://user-images.githubusercontent.com/62214428/194873018-cd82335a-1cfb-4d92-96c2-9c75c8ce5c62.png">
+- <img width="991" alt="스크린샷 2022-10-10 오후 10 06 29" src="https://user-images.githubusercontent.com/62214428/194873388-42d1a86a-7c60-4260-8157-9b47dd939b0c.png">
+```
+마찬가지로 리플렉션을 통해 접근 후 의존관계를 주입한다.
+```
 
 
