@@ -138,8 +138,9 @@ BeanUtils를 호출하여 최종적으로 빈을 생성
 ### 11. BeanUtils.instantiateClass()
 - <img width="1123" alt="스크린샷 2022-10-02 오후 5 55 35" src="https://user-images.githubusercontent.com/62214428/193446346-b26b8631-d42a-4fc8-aca0-09bcbbbfc532.png">
 ```
-리플렉션을 통한 빈 생성 완.료.
+리플렉션을 통한 빈 생성 완료
 ```
+
 
 - https://github.com/skarltjr/Spring/blob/main/annotation기반의%20빈%20등록%20동작%20원리알아보기.md
 ```
