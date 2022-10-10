@@ -116,10 +116,6 @@ BeanPostProcessor를 알아볼 필요가 있었다.
 ```
 
 ### 8. ConstructorResolver.autowireConstructor()
-```
-앞에서 받은 생성자 정보 및 파라미터 정보를 토대로 
-빈을 생성해둔다.
-```
 - <img width="923" alt="스크린샷 2022-10-02 오후 5 38 18" src="https://user-images.githubusercontent.com/62214428/193445862-639eec4e-3d19-41d7-a394-2e4d5682fa58.png">
 ```
 그럼 빈을 생성하는 instantiate 매서드를 살펴보면
@@ -138,6 +134,10 @@ BeanUtils를 호출하여 최종적으로 빈을 생성
 ### 11. BeanUtils.instantiateClass()
 - <img width="1123" alt="스크린샷 2022-10-02 오후 5 55 35" src="https://user-images.githubusercontent.com/62214428/193446346-b26b8631-d42a-4fc8-aca0-09bcbbbfc532.png">
 ```
+앞에서 생성을 위한 생성자 정보를 받아왔는데
+빈 생성 대상이 되는 ex) controller 객체에 대해 먼저 반복문을 통해 service와 같은 의존관계를 주입한 후
+최종적으로 controller 객체를 빈으로 생성해낸다.
+
 리플렉션을 통한 빈 생성 완료
 ```
 
