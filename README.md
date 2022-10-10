@@ -21,6 +21,8 @@ Spring-Core를 학습하자
 
 ## 스프링의 핵심원리 1. AOP
 - https://github.com/skarltjr/Spring/blob/main/AOP.md
+- AOP : dynamic proxy의 동작원리
+
 
 ## 스프링의 핵심원리 2. PSA
 - https://github.com/skarltjr/Memory_Write_Record/issues/67
