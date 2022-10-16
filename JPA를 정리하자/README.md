@@ -1,6 +1,18 @@
 - https://www.youtube.com/watch?v=Zwq2McbFOn4&list=PLwouWTPuIjUi9Sih9mEci4Rqhz1VqiQXX&index=1
 - https://github.com/madvirus/jpa-basic
 
+### 오해하지말자
+```
+jpa만 사용하는건 없다.
+
+80%의 간단한 쿼리 및 비즈니스로직(수정, 생성 등)에 굉장히 유용하지만
+20%의 굉장히 복잡한 쿼리 ex. select 는 분명히 jpql, native 쿼리가 필요하다
+예시로 네이밍으로 다 select 쿼리 커버 못하듯
+
+도구는 도구고 만능이아니다.
+```
+
+
 ```
 기초를 제대로
 
