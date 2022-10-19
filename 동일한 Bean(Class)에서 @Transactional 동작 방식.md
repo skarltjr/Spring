@@ -73,3 +73,31 @@ save() 매서드를 별도의 bean으로 빼고 이를 호출하는 형태를 �
 이 경우 프록시 객체의 매서드가아닌 원본 객체의 매서드를 실행하기때문에 호출당하는쪽의 매서드의 @Transaction 어노테이션은 동작하지 않는다.
 따라서 이 경우도 빈을 분리하는 방법을 통해 해결할 수 있다.
 ```
+
+
+### 정확히 알고가자
+- <img width="529" alt="스크린샷 2022-10-19 오후 4 47 56" src="https://user-images.githubusercontent.com/62214428/196629158-a5216ae8-9896-49c3-8cb5-c85ea5aa35fd.png">
+```
+외부에서 호출되는 매서드가 first()라고 했을때
+second()의 @Transactional은 동작할까??
+
+
+안한다. 이것도 결국 this.second()로 
+서로다른 빈에서 호출하는게 아니라 동일빈 / this에 의해 호출되고
+프록시가 아닌 원본 매서드가 활용되는것
+
+그런데!!!! 
+second()의 save()매서드의 동작 자체는 first()에서 시작한 트랜잭션에 묶여 
+하나의 트랜잭션으로 처리된다
+
+왜!!!!냐면
+바로 jpaRepository가 상속받은 crudRepository의 구현체이 simpleJpaRepository를 살펴보면 알 수 있듯이
+crudRepository의 매서드들은 기본적으로 @Transactionl이 붙어있다
+
+
+즉 결과적으로 second()의 save()매서드는 서로다른빈에서 simpleJpaRepository빈의 save()매서드를 호출하는거기에
+@Transactional이 동작하고 기본 required로 이미 시작된 트랜잭션이 전파된다
+```
+- <img width="744" alt="스크린샷 2022-10-19 오후 4 50 01" src="https://user-images.githubusercontent.com/62214428/196629597-bc41c5cb-571d-4d08-aa70-ed88d20633c1.png">
+
+
