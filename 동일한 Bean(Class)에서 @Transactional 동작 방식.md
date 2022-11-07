@@ -100,4 +100,22 @@ crudRepository의 매서드들은 기본적으로 @Transactionl이 붙어있다
 ```
 - <img width="744" alt="스크린샷 2022-10-19 오후 4 50 01" src="https://user-images.githubusercontent.com/62214428/196629597-bc41c5cb-571d-4d08-aa70-ed88d20633c1.png">
 
+------
+
+### 해결 방법2 - dependency lookup
+- <img width="767" alt="스크린샷 2022-11-07 오후 7 28 13" src="https://user-images.githubusercontent.com/62214428/200288012-8b300edb-a39f-45bc-86a1-00a25ee742ef.png">
+```
+application context를 의존성으로 갖고 
+현재 자기자신 빈을 가져오면
+```
+- <img width="1243" alt="스크린샷 2022-11-07 오후 7 32 21" src="https://user-images.githubusercontent.com/62214428/200289204-d4b88232-996a-4ac8-89b5-18cd16e3069d.png">
+```
+가져온 빈인 mock을 봐보자
+this.save()의 경우 원본 매서드가 호출되지만
+mock은 cglib에 의해 생성된 프록시 객체고 그렇기때문에 mock.save()의 transactional이 동작한다.
+```
+```
+실제로 전파레벨 new도 동작하는데
+```
+- <img width="1199" alt="스크린샷 2022-11-07 오후 7 26 38" src="https://user-images.githubusercontent.com/62214428/200290358-6354f400-1fa2-4891-a8c9-5fac1ea0b740.png">
 
