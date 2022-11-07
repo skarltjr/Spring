@@ -19,6 +19,11 @@ Bean Factory는 클라이언트의 요청에 의해서 Bean 객체가 사용되�
 즉 내가 생각하는바로는 Bean Factory를 확장한 Application Context가 
 빈 생성 및 직접적으로 연결관계를 맺어주는것은 Bean Factory의 기능을 활용하는데 이때 
 어떻게!! 할 것인지에 대한 설정정보(ex configuraion)를 읽어 이에 맞게 위 Bean Factory기능을 활용하는 확장판이 Application context
+
+
+beanFactory의 빈 생성기능을 포함하여
+우리는 빈 조회, 혹은 대표적으로 환경변수등에 맞는 설정등이 필요하다
+applicationContext는 이러한 기능을 제공하는 beanFactory의 확장
 ```
 
 ### Bean의 요청 처리 과정
