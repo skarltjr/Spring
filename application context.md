@@ -21,8 +21,14 @@ Bean Factory는 클라이언트의 요청에 의해서 Bean 객체가 사용되�
 어떻게!! 할 것인지에 대한 설정정보(ex configuraion)를 읽어 이에 맞게 위 Bean Factory기능을 활용하는 확장판이 Application context
 
 
-beanFactory의 빈 생성기능을 포함하여
-우리는 빈 조회, 혹은 대표적으로 환경변수등에 맞는 설정등이 필요하다
+beanFactory의 빈 생성,관리, 조회 기능을 담당하지만
+환경변수등에 맞는 설정등이 필요하다
+
+MessageSource 메시지 소스를 활용한 국제화 기능 -> 한국에서 들어오면 한국어로, 영어권에서 들어오면 영어로.
+EnvironmentCapable 환경 변수 -> 로컬, 개발, 운영등을 구분해서 처리
+ApplicationEventPublisher  애플리케이션 이벤트 -> 이벤트를 발행하고 구독하는 모델을 편리하게 지원
+ResourceLoader  편리한 리소스 조회 -> 파일, 클래스패스, 외부 등에서 리소스를 편리하게 조회 
+
 applicationContext는 이러한 기능을 제공하는 beanFactory의 확장
 ```
 
