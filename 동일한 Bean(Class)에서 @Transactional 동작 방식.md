@@ -117,10 +117,20 @@ application context를 의존성으로 갖고
 this.save()의 경우 원본 매서드가 호출되지만
 mock은 cglib에 의해 생성된 프록시 객체고 그렇기때문에 mock.save()의 transactional이 동작한다.
 ```
+
 ```
 실제로 전파레벨 new도 동작하는데
 ```
 - <img width="1199" alt="스크린샷 2022-11-07 오후 7 26 38" src="https://user-images.githubusercontent.com/62214428/200290358-6354f400-1fa2-4891-a8c9-5fac1ea0b740.png">
+
+```
+근데 왜 mock 변수는 프록시 객체일까?
+- @transactional 즉 aop가 동작해야하는 빈 대상으론 프록시 객체가 생성되고 
+- 빈 레지스트리에 해당 프록시 객체가 등록된다.
+
+그래서 빈으로 등록될 객체에 aop 적용대상이 하나도 없으면
+여기선 transactional 어노테이션이 하나도 없으면 원본 객체타입이다. mock이
+```
 ```
 근데 application context라는 거대한 스프링코드를 의존성으로 갖으면
 테스트가 가능할까? 이 부분은 고려해봐야한다.
