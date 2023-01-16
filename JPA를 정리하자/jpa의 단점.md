@@ -13,7 +13,7 @@ jpa를 사용하면 비즈니스 로직이 복잡해집니다!
 jdbc란 
 java database connectivity
 즉 db에 접근할 수 있도록 자바에서 제공하는 api다
-
+기존에는 db마다 접근방식이 다 달랐지만!!
 아래 그림과 같이 우리는 api를 활용하면 
 jdbc의 driveManager가 데이터베이스 제품에 따른 드라이버를 통해 
 어떤 디비든지 알맞은, 동일 동작을 가능하게 해준다.
