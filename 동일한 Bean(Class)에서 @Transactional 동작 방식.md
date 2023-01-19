@@ -4,6 +4,13 @@
 - AOP의 특성을 고려하라
 ```
 
+## 개선 정리
+- https://github.com/skarltjr/Memory_Write_Record/issues/141
+
+```
+아래 기록은 잘못된 부분이 있을 수 있지만 무엇을 잘못알았는지 남겨둔다.
+```
+
 ## 문제 상황
 - <img width="407" alt="스크린샷 2022-07-03 오후 5 36 02" src="https://user-images.githubusercontent.com/62214428/177031926-735ae1fb-19d7-4f56-ad50-09971145e8e0.png">
 - <img width="576" alt="스크린샷 2022-07-03 오후 5 34 07" src="https://user-images.githubusercontent.com/62214428/177031870-b4f34815-1c0b-43a3-b1ea-fcd904fdb308.png">
