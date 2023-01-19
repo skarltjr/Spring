@@ -4,7 +4,7 @@
 - AOP의 특성을 고려하라
 ```
 
-## 개선 정리
+## 개선 정리(올바른 정리)
 - https://github.com/skarltjr/Memory_Write_Record/issues/141
 
 ```
