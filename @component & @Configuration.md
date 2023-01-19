@@ -67,3 +67,8 @@ public class AppConfig {
 바로 위의 simpleBeanConsumer() 매서드에서 이번에는 최초생성된 SimpleBean을 활용할 수 있도록
 의존관계 주입을 받아 사용하고 정상상태 확인
 ```
+
+### 그런데 왜 @Component를 사용해?
+```
+@Component @Configuration 차이는 빈 싱글톤 보장차이가 맞는데 @Component를 사용하는 이유는 스프링의 스코프가 싱글톤말고 prototype도 존재
+```
